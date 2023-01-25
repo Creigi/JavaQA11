@@ -92,4 +92,64 @@ public class ProductTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void unitTestHasMatchesProduct() {
+        Product product = new Product(1, "qwerty", 1_000);
+
+        boolean expected = true;
+        boolean actual = product.matches("qwe");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void unitTestHasMatchesBook() {
+        Product product = new Book(1, "book1", 100, "My book", "I am");
+
+        boolean expected = true;
+        boolean actual = product.matches("am");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void unitTestHasMatchesSmartphone() {
+        Product product = new Smartphone(1, "smart1", 100, "Smart", "Maker");
+
+        boolean expected = true;
+        boolean actual = product.matches("ake");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void unitTestHasNoMatchesProduct() {
+        Product product = new Product(1, "qwerty", 1_000);
+
+        boolean expected = false;
+        boolean actual = product.matches("zzz");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void unitTestHasNoMatchesBook() {
+        Product product = new Book(1, "book1", 100, "My book", "I am");
+
+        boolean expected = false;
+        boolean actual = product.matches("My");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void unitTestHasNoMatchesSmartphone() {
+        Product product = new Smartphone(1, "smart1", 100, "Smart", "Maker");
+
+        boolean expected = false;
+        boolean actual = product.matches("Smart");
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
