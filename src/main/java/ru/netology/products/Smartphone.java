@@ -9,4 +9,13 @@ public class Smartphone extends Product {
         this.nameSmartphone = nameSmartphone;
         this.maker = maker;
     }
+
+    @Override
+    public boolean matches(String search) {
+        if (super.matches(search)) {
+            return true;
+        } else {
+            return maker.contains(search);
+        }
+    }
 }

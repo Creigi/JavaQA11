@@ -10,16 +10,16 @@ public class ProductTest {
     ProductRepository repo = new ProductRepository();
     ProductManager manager = new ProductManager(repo);
 
-    Product book1 = new Book(1, "aaaaa FFFFF", 1000, "aaaaa", "FFFFF");
-    Product book2 = new Book(5, "ababa FFFFF", 1800, "ababa", "FFFFF");
-    Product book3 = new Book(77, "ssaass SSSSS", 500, "ssaass", "SSSSS");
-    Product book4 = new Book(36, "bbbaaa QQQQQ", 400, "bbbaaa", "QQQQQ");
-    Product book5 = new Book(44, "fffff WWWWW", 100, "fffff", "WWWWW");
-    Product smartphone1 = new Smartphone(22, "aaaaa AAAAA", 10_000, "aaaaa", "AAAAA");
-    Product smartphone2 = new Smartphone(45, "bbbbb AAAAA", 15_000, "bbbbb", "AAAAA");
-    Product smartphone3 = new Smartphone(2, "aaabbb XXXXX", 12_000, "aaabbb", "XXXXX");
-    Product smartphone4 = new Smartphone(96, "ssssss VVVVV", 12_000, "ssssss", "VVVVV");
-    Product smartphone5 = new Smartphone(100, "ssssaa VVVVV", 18_000, "ssssaa", "VVVVV");
+    Product book1 = new Book(1, "Book1", 1000, "aaaaaBom", "FFFFF");
+    Product book2 = new Book(5, "Book5", 1800, "ababa", "FFFFFbom");
+    Product book3 = new Book(77, "Book77bom", 500, "ssaass", "SSSSS");
+    Product book4 = new Book(36, "Book36", 400, "bbbaaa", "QQQQQbom");
+    Product book5 = new Book(44, "Book44", 100, "fffffbom", "WWWWW");
+    Product smartphone1 = new Smartphone(22, "Smart22bom", 10_000, "aaaaa", "AAAAA");
+    Product smartphone2 = new Smartphone(45, "Smart45", 15_000, "bbbbb", "AAAAAbom");
+    Product smartphone3 = new Smartphone(2, "Smart2", 12_000, "aaabbb", "XXXXXBOM");
+    Product smartphone4 = new Smartphone(96, "Smart96", 12_000, "ssssss", "VVVVV");
+    Product smartphone5 = new Smartphone(100, "Smart100b om", 18_000, "ssssaabom", "VVVVV");
 
     @Test
     public void testManagerRepoAddingProducts() {
@@ -68,8 +68,8 @@ public class ProductTest {
         manager.add(book5);
         manager.add(smartphone5);
 
-        Product[] expected = {book2, book4};
-        Product[] actual = manager.searchBy("ba");
+        Product[] expected = {smartphone1, book2, smartphone2, book3, book4};
+        Product[] actual = manager.searchBy("bom");
 
         Assertions.assertArrayEquals(expected, actual);
     }
